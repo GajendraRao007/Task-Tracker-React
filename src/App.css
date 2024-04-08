@@ -10,6 +10,7 @@
 
 .form{
     width: 500px;
+    height: 500px;
     border-radius: 5px;
     background-color: #FDA403;
     margin: 20px 0;
@@ -64,17 +65,13 @@ label{
 .list-area{
     width: 100%;
     margin: 20px 50px;
-    /* border: 2px solid black; */
 }
 
 li{
     list-style: none;
 }
 
-.list{
-    /* display: flex; */
-    justify-content: space-between;
-}
+
 
 .delete-btn{
     background-color: #FDA403;
@@ -84,4 +81,9 @@ li{
     cursor: pointer;
     border: none;
     margin: 30px 0;
+}
+
+.delete-btn:hover{
+    background-color: red;
+    transition: 0.7 ease-in-out;
 }

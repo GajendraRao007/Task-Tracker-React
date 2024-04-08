@@ -1,52 +1,40 @@
 import React, { useState } from "react";
 
 function Form() {
-  const [taskTitle, setTaskTitle] = useState("");
-  const [taskDescription, setTaskDescription] = useState("");
-  const [tasks, setTasks] = useState([]);
+  let [taskTitle, setTaskTitle] = useState("");
+  let [taskDescription, setTaskDescription] = useState("");
+  let [tasks, setTasks] = useState([]);
 
-  const getTitleValue = (event) => {
+  let getTitleValue = (event) => {
     setTaskTitle(event.target.value);
   };
 
-  const getDescriptionValue = (event) => {
+  let getDescriptionValue = (event) => {
     setTaskDescription(event.target.value);
   };
 
-  const getInputValues = () => {
-    const newTask = { title: taskTitle, description: taskDescription };
+  let getInputValues = () => {
+    let newTask = { title: taskTitle, description: taskDescription };
     setTasks([...tasks, newTask]);
     setTaskTitle("");
     setTaskDescription("");
   };
 
-  const deleteTask = (index) => {
-    const updatedTasks = [...tasks];
+  let deleteTask = (index) => {
+    let updatedTasks = [...tasks];
     updatedTasks.splice(index, 1);
     setTasks(updatedTasks);
   };
 
   return (
     <div className="container">
+
       <div className="form">
         <label>Task Title</label> <br />
-        <input
-          type="text"
-          placeholder="Enter Your Task"
-          value={taskTitle}
-          onChange={getTitleValue}
-        />{" "}
-        <br />
+        <input type="text" placeholder="Enter Your Task" value={taskTitle} onChange={getTitleValue}/><br />
         <label>Task Description</label> <br />
-        <textarea
-          placeholder="Enter Task Description"
-          value={taskDescription}
-          onChange={getDescriptionValue}
-        ></textarea>{" "}
-        <br />
-        <button className="save-btn" onClick={getInputValues}>
-          Save
-        </button>
+        <textarea placeholder="Enter Task Description" value={taskDescription} onChange={getDescriptionValue}></textarea><br />
+        <button className="save-btn" onClick={getInputValues}>Save</button>
       </div>
 
       <div className="list-area">
@@ -56,17 +44,13 @@ function Form() {
               <h1>Task Title : {task.title}</h1>
               <h1>Task Description : {task.description}</h1>
               <div>
-                <button
-                  className="delete-btn"
-                  onClick={() => deleteTask(index)}
-                >
-                  Delete
-                </button>
+                <button  className="delete-btn" onClick={() => deleteTask(index)}>Delete</button>
               </div>
             </div>
           ))}
         </div>
       </div>
+
     </div>
   );
 }
